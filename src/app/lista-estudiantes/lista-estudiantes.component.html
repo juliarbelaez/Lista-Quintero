@@ -1,0 +1,44 @@
+<h2>Lista de estudiantes:</h2>
+
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="col" scope="col">#</th>
+        <th class="col" scope="col">Nombre</th>
+        <th class="col" scope="col">Apellido</th>
+        <th class="col" scope="col">E-mail</th>
+        <th class="col" scope="col">Curso</th>
+        <th class="col" scope="col">Edad</th>
+        <th class="col" scope="col">Fecha inicio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of ListaEstudiantesComponent">
+        <th class="col" scope="row">{{ estudiante.id }}</th>
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.apellido }}</td>
+        <td>{{ estudiante.email }}</td>
+        <td
+          class="curso"
+          [ngClass]="{
+            inglesA1: estudiante.curso === 'Inglés A1',
+            inglesA2: estudiante.curso === 'Inglés A2',
+            inglesB1: estudiante.curso === 'Inglés B1',
+            inglesB2: estudiante.curso === 'Inglés B2',
+            inglesC1: estudiante.curso === 'Inglés C1',
+            inglesC2: estudiante.curso === 'Inglés C2',
+            francesA1: estudiante.curso === 'Francés A1',
+            francesA2: estudiante.curso === 'Francés A2',
+            francesB1: estudiante.curso === 'Francés B1',
+            francesB2: estudiante.curso === 'Francés B2'
+          }"
+        >
+          {{ estudiante.curso }}
+        </td>
+        <td class="edad">{{ estudiante.edad }}</td>
+        <td>{{ estudiante.fechainicio | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
